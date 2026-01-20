@@ -7,6 +7,7 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-50: oklch(97.1% 0.013 17.38);
     --color-lime-500: oklch(76.8% 0.233 130.85);
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
@@ -164,6 +165,9 @@
   }
 }
 @layer utilities {
+  .bg-red-50 {
+    background-color: var(--color-red-50);
+  }
   .text-3xl {
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));

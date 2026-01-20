@@ -3,25 +3,20 @@ import logo from '../logo.svg';
 
 export const Header = () => {
   return (
-    <header className="App-header">
+    <header className="App-header bg-[var(--elegant-grey)]">
       <img src={logo} className="App-logo" alt="logo" />
       <h1 className="text-3xl font-bold text-lime-500 underline">
         Tailwind is Working!
       </h1>
-      <h2 className="text-3xl font-bold bg-red-50 underline">
-        THIS IS A TEST
-      </h2>
-      <p>
-        Edit <code>src/App.js</code> and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
+      <h1 className="text-3xl font-bold text-red-500 underline">
+        TEST 1
+      </h1>
+      <div className="lol bg-blue-500 w-[100px] h-[100px] flex justify-center items-center">
+        TEST 2
+      </div>
+      <div className="lol bg-green-500 w-[200px] h-[200px] flex justify-center items-center">
+        TEST 3
+      </div>
     </header>
   )
 }
