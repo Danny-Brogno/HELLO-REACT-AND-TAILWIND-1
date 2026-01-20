@@ -10,25 +10,36 @@ function App() {
   const [pass, setPassword] = useState("");
   const passwordRef = useRef(null);
   
+  const passwordasRef = useRef(null);
+  
   const passwordGenerator = useCallback(()=> {
     let pass = "";
     let strdata = "ABCDEFGHIJKLMNOPQRSTUWXYZabcdefghijklmnopqrstuwxyz";
     if (numAllow) strdata += "0123456789"
     if (charAllow) strdata += "!£$%^&@#~`"
     for (let index = 0; index < leng; index++) {
-      let char = Math.floor(Math.random() * strdata.length + 1);
+      let char = Math.floor(Math.random() * strdata.length);
       pass += strdata.charAt(char)
     }
     setPassword(pass);
     
   },[leng,numAllow,charAllow,setPassword]);
   
+  // the useEffect() hook
   useEffect(() => {
     passwordGenerator();
   }, [leng, numAllow, charAllow, passwordGenerator]);
   
+  // copy password function:
+  const copyFunction = useCallback(()=>{
+    passwordasRef.current?.select();
+    // passwordasRef.current?.setSelectionRange(0,6);
+    window.navigator.clipboard.writeText(pass);
+  },[pass]);
   
-  const settings = { pass, leng, setLen, numAllow, setNumAllow, charAllow, setCharAllow, setNumAllow };
+  // -------------------------------------------------------
+  
+  const settings = { pass, leng, setLen, numAllow, setNumAllow, charAllow, setCharAllow, setNumAllow, charAllow, copyFunction, passwordasRef };
   
   return (
     <div className="App">
